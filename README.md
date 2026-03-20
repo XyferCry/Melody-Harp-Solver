@@ -2,7 +2,7 @@
 
 Simple Hypixel SkyBlock Harp helper using MineScript.
 
-Detects quartz blocks in the GUI and clicks them with minimal delay.
+Detects quartz blocks in the GUI and clicks them with minimal random delay
 
 ## Requirements
 
