@@ -1,6 +1,7 @@
 import system.lib.minescript as m
 from components.minescript_plus import Inventory
 import time
+import random
 
 last_state = None
 last_click_time = 0
@@ -30,7 +31,10 @@ def click(slot):
     if now - last_click_time < CLICK_COOLDOWN:
         return
 
-    time.sleep(0.01)
+    # minimale variation (~8–12ms)
+    delay = 0.01 + random.uniform(-0.002, 0.002)
+    time.sleep(max(0.006, delay))
+
     Inventory.click_slot(slot)
 
     last_click_time = time.time()
@@ -51,4 +55,5 @@ while True:
             click(slot)
 
     last_state = state
-    time.sleep(0.005)
+
+    time.sleep(0.005)       
